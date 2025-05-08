@@ -2,50 +2,92 @@
 import { Product } from "@/types/product";
 
 export const CATEGORIES = [
-  "Все", "Природа", "Животные", "Символы", "Геометрия", "Персонажи"
+  "Все", "Животные", "Цветы", "Геральдика", "Надписи", "Авиация", "Символы", "Для детей"
 ];
 
 export const PRODUCTS: Product[] = [
   {
     id: 1,
-    title: "Горный пейзаж",
-    price: 390,
-    category: "Природа",
-    image: "https://images.unsplash.com/photo-1566766292903-5a3236f847fc?q=80&w=300&auto=format&fit=crop"
+    title: "Тигр винтажный",
+    price: 299,
+    category: "Животные",
+    image: "https://images.unsplash.com/photo-1535338454770-8be927b5a00a?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 2,
-    title: "Сова",
-    price: 450,
-    category: "Животные",
-    image: "https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?q=80&w=300&auto=format&fit=crop"
+    title: "Роза классическая",
+    price: 249,
+    category: "Цветы",
+    image: "https://images.unsplash.com/photo-1579704964555-ee0c27311665?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 3,
-    title: "Космический треугольник",
-    price: 350,
-    category: "Геометрия",
-    image: "https://images.unsplash.com/photo-1559650656-5d1d361ad10e?q=80&w=300&auto=format&fit=crop"
+    title: "Герб Российской Федерации",
+    price: 399,
+    category: "Геральдика",
+    image: "https://images.unsplash.com/photo-1579154260010-a958e5cb596b?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 4,
-    title: "Роза ветров",
-    price: 420,
-    category: "Символы",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
+    title: "Best Friends Forever",
+    price: 199,
+    category: "Надписи",
+    image: "https://images.unsplash.com/photo-1594439425474-7b34372981a0?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 5,
-    title: "Единорог",
-    price: 510,
-    category: "Персонажи",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
+    title: "Самолёт контурный",
+    price: 349,
+    category: "Авиация",
+    image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: 6,
-    title: "Лесной пейзаж",
-    price: 380,
-    category: "Природа",
-    image: "https://images.unsplash.com/photo-1614813651377-83bdfc00d48a?q=80&w=300&auto=format&fit=crop"
+    title: "Орёл в полёте",
+    price: 299,
+    category: "Животные",
+    image: "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=600&auto=format&fit=crop&q=80"
   },
+  {
+    id: 7,
+    title: "Роза ветров",
+    price: 219,
+    category: "Символы",
+    image: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: 8,
+    title: "Единорог радужный",
+    price: 249,
+    category: "Для детей",
+    image: "https://images.unsplash.com/photo-1596854372407-baba7fef6e51?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: 9,
+    title: "Лев геральдический",
+    price: 379,
+    category: "Геральдика",
+    image: "https://images.unsplash.com/photo-1531170908166-d9d58be61376?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: 10,
+    title: "Лилия королевская",
+    price: 289,
+    category: "Цветы",
+    image: "https://images.unsplash.com/photo-1567590997610-1a1292a2f9ff?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: 11,
+    title: "Born to Ride",
+    price: 249,
+    category: "Надписи",
+    image: "https://images.unsplash.com/photo-1558727927-82bdd22d0de4?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: 12,
+    title: "Вертолёт военный",
+    price: 349,
+    category: "Авиация",
+    image: "https://images.unsplash.com/photo-1584496617530-33b27d99bb29?w=600&auto=format&fit=crop&q=80"
+  }
 ];

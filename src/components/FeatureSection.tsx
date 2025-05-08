@@ -1,4 +1,5 @@
 
+import React from "react";
 import Icon from "@/components/ui/icon";
 
 interface Feature {
@@ -10,33 +11,38 @@ interface Feature {
 const FeatureSection = () => {
   const features: Feature[] = [
     {
-      icon: "Sparkles",
-      title: "Уникальные дизайны",
-      description: "Авторские работы, которые сделают вашу одежду неповторимой"
+      icon: "FileDigit",
+      title: "Все популярные форматы",
+      description: "Поддержка DST, PES, JEF, HUS, VP3, EXP и других форматов для любых машин"
     },
     {
-      icon: "Star",
-      title: "Высокое качество",
-      description: "Профессиональные дизайны для любого оборудования"
+      icon: "Zap",
+      title: "Мгновенная загрузка",
+      description: "Получите ваши файлы сразу после оплаты и начните вышивать"
     },
     {
-      icon: "Truck",
-      title: "Быстрая доставка",
-      description: "Мгновенное получение файлов после оплаты"
+      icon: "BarChart2",
+      title: "Качественные дизайны",
+      description: "Профессиональная оцифровка и проверка на реальном оборудовании"
+    },
+    {
+      icon: "Headphones",
+      title: "Техническая поддержка",
+      description: "Поможем разобраться с форматами и настройками ваших файлов"
     }
   ];
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Почему выбирают нас</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Преимущества наших дизайнов</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="bg-purple-100 w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center">
-                <Icon name={feature.icon} className="text-purple-600 w-8 h-8" />
+            <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+              <div className="bg-purple-100 w-14 h-14 mb-4 rounded-lg flex items-center justify-center">
+                <Icon name={feature.icon} className="text-purple-600 w-7 h-7" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}
