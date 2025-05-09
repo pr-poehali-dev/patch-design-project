@@ -20,7 +20,6 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
 
-  // Проверяем статус авторизации при загрузке
   useEffect(() => {
     try {
       const currentUserStr = localStorage.getItem("currentUser");
@@ -42,7 +41,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-russian-blue to-russian-red bg-clip-text text-transparent">
                 ЭМБРОТЕКА
               </span>
             </Link>
@@ -169,7 +168,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
               <SheetContent side="right" className="w-[300px] p-0">
                 <div className="flex flex-col h-full">
                   <div className="p-4 border-b">
-                    <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                    <span className="text-xl font-bold bg-gradient-to-r from-russian-blue to-russian-red bg-clip-text text-transparent">
                       ЭМБРОТЕКА
                     </span>
                   </div>

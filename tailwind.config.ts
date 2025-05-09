@@ -1,10 +1,14 @@
-
-import { type Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
-export default {
+const config = {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -15,18 +19,24 @@ export default {
     },
     extend: {
       colors: {
+        // Основные цвета российского флага
+        white: "#FFFFFF", // белый
+        "russian-blue": "#0039A6", // синий
+        "russian-red": "#D52B1E", // красный
+
+        // Обновляем основные цвета сайта
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#0039A6", // синий как основной цвет
+          foreground: "#FFFFFF", // белый текст на синем фоне
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#D52B1E", // красный как вторичный цвет
+          foreground: "#FFFFFF", // белый текст на красном фоне
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -37,8 +47,8 @@ export default {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#F0F0F0", // светло-серый оттенок как акцентный цвет
+          foreground: "#0039A6", // синий текст на светло-сером фоне
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -49,30 +59,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: {
-            DEFAULT: "hsl(var(--sidebar-primary))",
-            foreground: "hsl(var(--sidebar-primary-foreground))",
-          },
-          accent: {
-            DEFAULT: "hsl(var(--sidebar-accent))",
-            foreground: "hsl(var(--sidebar-accent-foreground))",
-          },
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
-        purple: {
-          '50': '#f5f3ff',
-          '100': '#ede9fe',
-          '200': '#ddd6fe',
-          '300': '#c4b5fd',
-          '400': '#a78bfa',
-          '500': '#8b5cf6',
-          '600': '#7c3aed',
-          '700': '#6d28d9',
-          '800': '#5b21b6',
-          '900': '#4c1d95',
+          DEFAULT: "#F8F9FA", // светлый фон для боковой панели
+          foreground: "#0039A6", // синий текст на светлом фоне
+          border: "#E2E8F0", // светло-серая граница
+          accent: "#0039A6", // синий акцент
+          "accent-foreground": "#FFFFFF", // белый текст на синем акценте
+          ring: "#D52B1E", // красное кольцо при фокусе
         },
       },
       borderRadius: {
@@ -99,5 +91,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
+
+export default config;
