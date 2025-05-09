@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -10,6 +10,24 @@ interface HeaderProps {
 
 const Header = ({ cartItemsCount }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  // Проверяем статус авторизации при загрузке
+  useEffect(() => {
+    try {
+      const currentUserStr = localStorage.getItem("currentUser");
+      if (currentUserStr) {
+        const currentUser = JSON.parse(currentUserStr);
+        if (currentUser.isLoggedIn) {
+          setIsLoggedIn(true);
+          setUserName(currentUser.name);
+        }
+      }
+    } catch (error) {
+      console.error("Ошибка при проверке статуса авторизации:", error);
+    }
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -59,6 +77,35 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
               >
                 <Icon name="Search" className="h-5 w-5 text-gray-700" />
               </Button>
+
+              {isLoggedIn ? (
+                <Link to="/account">
+                  <Button
+                    variant="ghost"
+                    className="rounded-full hover:bg-purple-50 flex items-center gap-2"
+                    aria-label="Личный кабинет"
+                  >
+                    <Icon name="User" className="h-5 w-5 text-gray-700" />
+                    <span className="hidden lg:inline-block text-gray-700">
+                      {userName}
+                    </span>
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/auth">
+                  <Button
+                    variant="ghost"
+                    className="rounded-full hover:bg-purple-50 flex items-center gap-2"
+                    aria-label="Войти"
+                  >
+                    <Icon name="LogIn" className="h-5 w-5 text-gray-700" />
+                    <span className="hidden lg:inline-block text-gray-700">
+                      Войти
+                    </span>
+                  </Button>
+                </Link>
+              )}
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -67,6 +114,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
               >
                 <Icon name="Heart" className="h-5 w-5 text-gray-700" />
               </Button>
+
               <Link to="/cart">
                 <Button
                   variant="ghost"
@@ -126,6 +174,26 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                     >
                       Контакты
                     </a>
+
+                    {isLoggedIn ? (
+                      <Link
+                        to="/account"
+                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Icon name="User" className="h-5 w-5" />
+                        Личный кабинет
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/auth"
+                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Icon name="LogIn" className="h-5 w-5" />
+                        Войти
+                      </Link>
+                    )}
                   </nav>
                   <div className="mt-auto p-4 border-t flex space-x-4">
                     <Button
@@ -144,7 +212,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                     >
                       <Icon name="Heart" className="h-5 w-5 text-gray-700" />
                     </Button>
-                    <Link to="/cart">
+                    <Link to="/cart" onClick={() => setIsMobileMenuOpen(false)}>
                       <Button
                         variant="ghost"
                         size="icon"
