@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +11,7 @@ import ProductCharacteristics from "@/components/product/ProductCharacteristics"
 import ProductActions from "@/components/product/ProductActions";
 import ProductDetailsDialog from "@/components/product/ProductDetailsDialog";
 import ProductDetailFull from "@/components/product/ProductDetailFull";
+import ProductDescription from "@/components/product/ProductDescription"; // Добавляем импорт нового компонента
 
 interface ProductCardProps {
   product: Product;
@@ -23,7 +23,7 @@ interface ProductCardProps {
  */
 const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  
+
   /**
    * Обработчик переключения состояния избранного
    */
@@ -31,7 +31,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
     e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
-  
+
   /**
    * Обработчик добавления в корзину
    */
@@ -62,20 +62,25 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
                 className="h-7 w-7 text-gray-400 hover:text-purple-600 -mr-2 -mt-1"
                 onClick={toggleFavorite}
               >
-                <Icon 
-                  name="Heart" 
-                  size={18} 
+                <Icon
+                  name="Heart"
+                  size={18}
                   className={isFavorite ? "fill-red-500 text-red-500" : ""}
                 />
               </Button>
             </div>
-            
+
             <p className="text-sm text-gray-500 mb-3">{product.category}</p>
-            
+
+            {/* Добавляем компонент с описанием */}
+            {product.description && (
+              <ProductDescription description={product.description} />
+            )}
+
             {/* Блок с характеристиками продукта */}
             <ProductCharacteristics product={product} />
           </div>
-          
+
           {/* Блок действий с продуктом */}
           <ProductActions
             price={product.price}
@@ -86,16 +91,10 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         </CardContent>
 
         {/* Диалоговое окно с подробной информацией о продукте */}
-        <ProductDetailsDialog 
-          product={product}
-          onAddToCart={handleAddToCart}
-        />
-        
+        <ProductDetailsDialog product={product} onAddToCart={handleAddToCart} />
+
         {/* Диалоговое окно с полными характеристиками */}
-        <ProductDetailFull
-          product={product}
-          onAddToCart={handleAddToCart}
-        />
+        <ProductDetailFull product={product} onAddToCart={handleAddToCart} />
       </Card>
     </Dialog>
   );

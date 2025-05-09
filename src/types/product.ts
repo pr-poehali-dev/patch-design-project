@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   category: string;
   image: string;
+  description?: string; // Добавляем поле для описания товара
   characteristics?: {
     size?: string;
     stitchCount?: number;

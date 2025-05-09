@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,10 @@ interface ProductDetailsDialogProps {
 /**
  * Компонент модального окна с подробностями о продукте
  */
-const ProductDetailsDialog = ({ product, onAddToCart }: ProductDetailsDialogProps) => {
+const ProductDetailsDialog = ({
+  product,
+  onAddToCart,
+}: ProductDetailsDialogProps) => {
   return (
     <DialogContent className="sm:max-w-[600px]">
       <DialogHeader>
@@ -26,9 +28,9 @@ const ProductDetailsDialog = ({ product, onAddToCart }: ProductDetailsDialogProp
       </DialogHeader>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <div>
-          <img 
-            src={product.image} 
-            alt={product.title} 
+          <img
+            src={product.image}
+            alt={product.title}
             className="w-full h-auto rounded-md object-cover"
           />
         </div>
@@ -38,38 +40,57 @@ const ProductDetailsDialog = ({ product, onAddToCart }: ProductDetailsDialogProp
             <Badge variant="outline" className="mb-2">
               {product.category}
             </Badge>
-            <p className="text-2xl font-bold text-purple-600">{product.price} ₽</p>
+            <p className="text-2xl font-bold text-purple-600">
+              {product.price} ₽
+            </p>
           </div>
-          
+
+          {/* Добавляем отображение описания, если оно существует */}
+          {product.description && (
+            <div>
+              <p className="text-sm text-gray-600">{product.description}</p>
+            </div>
+          )}
+
           <Separator />
-          
+
           <div className="space-y-2">
             <h4 className="font-medium">Характеристики дизайна:</h4>
             <ul className="space-y-1 text-sm">
               <li className="flex justify-between">
                 <span className="text-gray-600">Размер:</span>
-                <span className="font-medium">{product.characteristics?.size} мм</span>
+                <span className="font-medium">
+                  {product.characteristics?.size} мм
+                </span>
               </li>
               <li className="flex justify-between">
                 <span className="text-gray-600">Количество стежков:</span>
-                <span className="font-medium">{product.characteristics?.stitchCount?.toLocaleString()}</span>
+                <span className="font-medium">
+                  {product.characteristics?.stitchCount?.toLocaleString()}
+                </span>
               </li>
               <li className="flex justify-between">
                 <span className="text-gray-600">Количество цветов:</span>
-                <span className="font-medium">{product.characteristics?.colors}</span>
+                <span className="font-medium">
+                  {product.characteristics?.colors}
+                </span>
               </li>
               <li className="flex justify-between">
                 <span className="text-gray-600">Сложность:</span>
-                <span className="font-medium">{product.characteristics?.difficulty}</span>
+                <span className="font-medium">
+                  {product.characteristics?.difficulty}
+                </span>
               </li>
               <li className="flex justify-between">
                 <span className="text-gray-600">Форматы файлов:</span>
-                <span className="font-medium uppercase">{product.characteristics?.formats?.join(", ")}</span>
+                <span className="font-medium uppercase">
+                  {product.characteristics?.formats?.join(", ")}
+                </span>
               </li>
             </ul>
           </div>
-          
-          <Button 
+
+          <Button
             className="w-full bg-purple-600 hover:bg-purple-700 mt-4"
             onClick={onAddToCart}
           >
