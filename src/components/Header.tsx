@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { CATEGORIES } from "@/data/products";
+import { ChevronDown } from "lucide-react";
 
 interface HeaderProps {
   cartItemsCount: number;
@@ -40,12 +47,29 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
               </span>
             </Link>
             <nav className="ml-10 hidden md:flex space-x-6">
-              <a
-                href="#"
-                className="text-gray-700 hover:text-purple-600 font-medium"
-              >
-                Каталог
-              </a>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center">
+                    Каталог
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-64 p-0">
+                  <div className="py-2">
+                    {CATEGORIES.filter((cat) => cat !== "Все").map(
+                      (category) => (
+                        <Link
+                          key={category}
+                          to="/"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                        >
+                          {category}
+                        </Link>
+                      ),
+                    )}
+                  </div>
+                </PopoverContent>
+              </Popover>
               <a
                 href="#"
                 className="text-gray-700 hover:text-purple-600 font-medium"
@@ -142,35 +166,47 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                   <Icon name="Menu" className="h-5 w-5 text-gray-700" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[250px] p-0">
+              <SheetContent side="right" className="w-[300px] p-0">
                 <div className="flex flex-col h-full">
                   <div className="p-4 border-b">
                     <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                       ЭМБРОТЕКА
                     </span>
                   </div>
-                  <nav className="flex flex-col p-4 space-y-4">
+                  <nav className="flex flex-col p-4 space-y-1">
+                    <div className="pb-2 mb-2 border-b">
+                      <p className="text-sm font-medium text-gray-500 mb-2">
+                        Категории
+                      </p>
+                      {CATEGORIES.filter((cat) => cat !== "Все").map(
+                        (category) => (
+                          <a
+                            key={category}
+                            href="#"
+                            className="block py-2 text-gray-700 hover:text-purple-600 font-medium"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {category}
+                          </a>
+                        ),
+                      )}
+                    </div>
+
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-purple-600 font-medium"
-                    >
-                      Каталог
-                    </a>
-                    <a
-                      href="#"
-                      className="text-gray-700 hover:text-purple-600 font-medium"
+                      className="text-gray-700 hover:text-purple-600 font-medium py-2"
                     >
                       Форматы файлов
                     </a>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-purple-600 font-medium"
+                      className="text-gray-700 hover:text-purple-600 font-medium py-2"
                     >
                       Как заказать
                     </a>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-purple-600 font-medium"
+                      className="text-gray-700 hover:text-purple-600 font-medium py-2"
                     >
                       Контакты
                     </a>
@@ -178,7 +214,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                     {isLoggedIn ? (
                       <Link
                         to="/account"
-                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2"
+                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2 py-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <Icon name="User" className="h-5 w-5" />
@@ -187,7 +223,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                     ) : (
                       <Link
                         to="/auth"
-                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2"
+                        className="text-gray-700 hover:text-purple-600 font-medium flex items-center gap-2 py-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <Icon name="LogIn" className="h-5 w-5" />
@@ -195,7 +231,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                       </Link>
                     )}
                   </nav>
-                  <div className="mt-auto p-4 border-t flex space-x-4">
+                  <div className="mt-auto p-4 border-t flex justify-around">
                     <Button
                       variant="ghost"
                       size="icon"

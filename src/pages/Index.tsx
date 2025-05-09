@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CategoryFilter from "@/components/CategoryFilter";
+import CategoryMenu from "@/components/CategoryMenu"; // Импортируем новый компонент
 import ProductGrid from "@/components/ProductGrid";
 import FeatureSection from "@/components/FeatureSection";
 import InfoSection from "@/components/InfoSection";
@@ -137,15 +138,29 @@ const Index = () => {
           Каталог дизайнов для вышивки
         </h2>
 
-        {/* Category filter */}
-        <CategoryFilter
-          categories={CATEGORIES}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
+          {/* Левая колонка с новым меню категорий */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-gray-800">Категории</h3>
+            <CategoryMenu
+              categories={CATEGORIES}
+              onSelectCategory={setSelectedCategory}
+            />
+          </div>
 
-        {/* Products grid */}
-        <ProductGrid products={filteredProducts} onAddToCart={addToCart} />
+          {/* Правая колонка с товарами */}
+          <div className="lg:col-span-3">
+            {/* Горизонтальные кнопки категорий остаются как дополнительная фильтрация */}
+            <CategoryFilter
+              categories={CATEGORIES}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
+
+            {/* Products grid */}
+            <ProductGrid products={filteredProducts} onAddToCart={addToCart} />
+          </div>
+        </div>
       </section>
 
       {/* Features section */}
