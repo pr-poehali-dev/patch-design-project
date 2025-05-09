@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Icon from '@/components/ui/icon';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Icon from "@/components/ui/icon";
 
 // Тип для дизайна с дополнительными полями
 interface PurchasedDesign {
@@ -52,7 +51,7 @@ const MyDesigns = ({ designs, onDownload, formatDate }: MyDesignsProps) => {
       </div>
     );
   }
-  
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {designs.map((design) => (
@@ -70,8 +69,8 @@ const MyDesigns = ({ designs, onDownload, formatDate }: MyDesignsProps) => {
               <span>{design.category}</span>
               <span>{formatDate(design.purchaseDate)}</span>
             </div>
-            <Button 
-              className="w-full bg-purple-600 hover:bg-purple-700"
+            <Button
+              className="w-full bg-russian-blue hover:bg-russian-blue/90"
               onClick={() => onDownload(design)}
             >
               <Icon name="Download" className="mr-2 h-4 w-4" />

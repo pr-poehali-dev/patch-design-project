@@ -1,11 +1,10 @@
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
-import Icon from '@/components/ui/icon';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import Icon from "@/components/ui/icon";
 
 interface LoginFormProps {
   onSubmit: (formData: LoginFormData) => void;
@@ -20,16 +19,16 @@ export interface LoginFormData {
 
 const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
-    email: '',
-    password: '',
-    rememberMe: false
+    email: "",
+    password: "",
+    rememberMe: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -52,11 +51,14 @@ const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
           onChange={handleChange}
         />
       </div>
-      
+
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <Label htmlFor="login-password">Пароль</Label>
-          <Link to="/forgot-password" className="text-sm text-purple-600 hover:text-purple-800">
+          <Link
+            to="/forgot-password"
+            className="text-sm text-purple-600 hover:text-purple-800"
+          >
             Забыли пароль?
           </Link>
         </div>
@@ -69,22 +71,24 @@ const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
           onChange={handleChange}
         />
       </div>
-      
+
       <div className="flex items-center space-x-2">
-        <Checkbox 
-          id="remember-me" 
+        <Checkbox
+          id="remember-me"
           name="rememberMe"
           checked={formData.rememberMe}
-          onCheckedChange={(checked) => 
-            setFormData(prev => ({ ...prev, rememberMe: checked as boolean }))
+          onCheckedChange={(checked) =>
+            setFormData((prev) => ({ ...prev, rememberMe: checked as boolean }))
           }
         />
-        <Label htmlFor="remember-me" className="text-sm">Запомнить меня</Label>
+        <Label htmlFor="remember-me" className="text-sm">
+          Запомнить меня
+        </Label>
       </div>
-      
-      <Button 
-        type="submit" 
-        className="w-full bg-purple-600 hover:bg-purple-700"
+
+      <Button
+        type="submit"
+        className="w-full bg-russian-blue hover:bg-russian-blue/90"
         disabled={isLoading}
       >
         {isLoading ? (
@@ -96,7 +100,7 @@ const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
           "Войти"
         )}
       </Button>
-      
+
       <div className="relative my-4">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t border-gray-300" />
@@ -105,7 +109,7 @@ const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
           <span className="bg-white px-2 text-gray-500">или</span>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-2 gap-4">
         <Button variant="outline" className="w-full" type="button">
           <Icon name="Mail" className="mr-2 h-4 w-4" />
