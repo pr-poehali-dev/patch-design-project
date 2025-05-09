@@ -60,7 +60,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
               <Button
                 size="icon"
                 variant="ghost"
-                className="h-7 w-7 text-gray-400 hover:text-purple-600 -mr-2 -mt-1"
+                className="h-7 w-7 text-gray-400 hover:text-russian-blue -mr-2 -mt-1"
                 onClick={toggleFavorite}
               >
                 <Icon

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
@@ -11,15 +10,19 @@ interface ProductDescriptionProps {
 /**
  * Компонент для отображения описания товара с возможностью разворачивания
  */
-const ProductDescription = ({ description, maxLength = 100 }: ProductDescriptionProps) => {
+const ProductDescription = ({
+  description,
+  maxLength = 100,
+}: ProductDescriptionProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const needsTruncation = description.length > maxLength;
-  
+
   // Обрезанное описание с многоточием
-  const truncatedDescription = needsTruncation && !isExpanded 
-    ? `${description.substring(0, maxLength).trim()}...` 
-    : description;
-  
+  const truncatedDescription =
+    needsTruncation && !isExpanded
+      ? `${description.substring(0, maxLength).trim()}...`
+      : description;
+
   // Переключение состояния развернутости
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -28,12 +31,12 @@ const ProductDescription = ({ description, maxLength = 100 }: ProductDescription
   return (
     <div className="mb-3 text-sm">
       <p className="text-gray-700">{truncatedDescription}</p>
-      
+
       {needsTruncation && (
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="h-auto p-0 text-purple-600 hover:bg-transparent hover:text-purple-800 hover:underline mt-1"
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-auto p-0 text-russian-blue hover:bg-transparent hover:text-russian-blue/80 hover:underline mt-1"
           onClick={toggleExpand}
         >
           {isExpanded ? (

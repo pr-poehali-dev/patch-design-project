@@ -106,7 +106,7 @@ const Footer = ({ categories }: FooterProps) => {
                 placeholder="Ваш email"
                 className="rounded-r-none bg-gray-800 border-gray-700 text-white focus-visible:ring-purple-500"
               />
-              <Button className="rounded-l-none bg-purple-600 hover:bg-purple-700">
+              <Button className="rounded-l-none bg-russian-blue hover:bg-russian-blue/90">
                 Подписаться
               </Button>
             </div>

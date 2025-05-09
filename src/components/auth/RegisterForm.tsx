@@ -104,11 +104,11 @@ const RegisterForm = ({ onSubmit, isLoading }: RegisterFormProps) => {
         />
         <Label htmlFor="agree-terms" className="text-sm">
           Я согласен с{" "}
-          <a href="#" className="text-purple-600 hover:underline">
+          <a href="#" className="text-russian-blue hover:underline">
             политикой конфиденциальности
           </a>{" "}
           и{" "}
-          <a href="#" className="text-purple-600 hover:underline">
+          <a href="#" className="text-russian-blue hover:underline">
             пользовательским соглашением
           </a>
         </Label>

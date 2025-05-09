@@ -57,7 +57,7 @@ const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
           <Label htmlFor="login-password">Пароль</Label>
           <Link
             to="/forgot-password"
-            className="text-sm text-purple-600 hover:text-purple-800"
+            className="text-sm text-russian-blue hover:text-russian-blue/80"
           >
             Забыли пароль?
           </Link>

@@ -193,7 +193,7 @@ const Checkout = () => {
                 У вас уже есть аккаунт?{" "}
                 <Link
                   to="/auth"
-                  className="text-purple-600 font-medium underline"
+                  className="text-russian-blue font-medium underline"
                 >
                   Войдите
                 </Link>
