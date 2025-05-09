@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -74,7 +73,7 @@ const CartSummary = ({
               />
               <Button
                 variant="outline"
-                className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                className="border-russian-blue text-russian-blue hover:bg-russian-blue/10"
                 onClick={applyPromoCode}
               >
                 Применить
@@ -100,7 +99,7 @@ const CartSummary = ({
           <div className="mt-4 text-center">
             <Link
               to="/"
-              className="text-purple-600 hover:text-purple-800 text-sm"
+              className="text-russian-blue hover:text-russian-blue/80 text-sm"
             >
               Продолжить покупки
             </Link>
@@ -111,8 +110,7 @@ const CartSummary = ({
       <Alert className="mt-6 bg-purple-50 border-purple-200">
         <Icon name="Info" className="h-4 w-4 text-purple-600" />
         <AlertDescription className="text-purple-800">
-          Для демонстрации можно использовать промокод{" "}
-          <strong>NEW15</strong>
+          Для демонстрации можно использовать промокод <strong>NEW15</strong>
         </AlertDescription>
       </Alert>
     </div>

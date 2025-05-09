@@ -41,12 +41,11 @@ const ProductDetailsDialog = ({
             <Badge variant="outline" className="mb-2">
               {product.category}
             </Badge>
-            <p className="text-2xl font-bold text-purple-600">
+            <p className="text-2xl font-bold text-russian-blue">
               {product.price} ₽
             </p>
           </div>
 
-          {/* Добавляем отображение описания, если оно существует */}
           {product.description && (
             <div>
               <p className="text-sm text-gray-600">{product.description}</p>
@@ -91,7 +90,6 @@ const ProductDetailsDialog = ({
             </ul>
           </div>
 
-          {/* Добавляем информацию о лицензии */}
           <div className="text-xs p-3 bg-gray-50 rounded-md">
             <p className="font-medium flex items-center mb-1">
               <Icon name="Shield" className="h-3.5 w-3.5 mr-1 text-gray-500" />
@@ -105,7 +103,7 @@ const ProductDetailsDialog = ({
           </div>
 
           <Button
-            className="w-full bg-purple-600 hover:bg-purple-700 mt-4"
+            className="w-full bg-russian-blue hover:bg-russian-blue/90 mt-4"
             onClick={onAddToCart}
           >
             Добавить в корзину
