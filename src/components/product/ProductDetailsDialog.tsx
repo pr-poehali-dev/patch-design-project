@@ -3,6 +3,7 @@ import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import Icon from "@/components/ui/icon";
 import {
   DialogContent,
   DialogHeader,
@@ -88,6 +89,19 @@ const ProductDetailsDialog = ({
                 </span>
               </li>
             </ul>
+          </div>
+
+          {/* Добавляем информацию о лицензии */}
+          <div className="text-xs p-3 bg-gray-50 rounded-md">
+            <p className="font-medium flex items-center mb-1">
+              <Icon name="Shield" className="h-3.5 w-3.5 mr-1 text-gray-500" />
+              Лицензия автора
+            </p>
+            <p className="text-gray-600 leading-tight">
+              Продавец предоставляет неисключительное право использования и
+              продажи готовых вышивок, созданных с использованием данного
+              дизайна. Распространение дизайна в цифровой форме запрещено.
+            </p>
           </div>
 
           <Button

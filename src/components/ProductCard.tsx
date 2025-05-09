@@ -12,6 +12,7 @@ import ProductActions from "@/components/product/ProductActions";
 import ProductDetailsDialog from "@/components/product/ProductDetailsDialog";
 import ProductDetailFull from "@/components/product/ProductDetailFull";
 import ProductDescription from "@/components/product/ProductDescription"; // Добавляем импорт нового компонента
+import ProductLicense from "@/components/product/ProductLicense"; // Импортируем новый компонент лицензии
 
 interface ProductCardProps {
   product: Product;
@@ -79,6 +80,9 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
 
             {/* Блок с характеристиками продукта */}
             <ProductCharacteristics product={product} />
+
+            {/* Лицензия автора - добавляем наш новый компонент */}
+            <ProductLicense />
           </div>
 
           {/* Блок действий с продуктом */}
