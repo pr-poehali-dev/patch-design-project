@@ -54,7 +54,7 @@ const Header = ({ cartItemsCount }: HeaderProps) => {
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </PopoverTrigger>
-                <PopoverContent className="w-64 p-0">
+                <PopoverContent className="w-64 p-0 max-h-[400px] overflow-y-auto">
                   <div className="py-2">
                     {CATEGORIES.filter((cat) => cat !== "Все").map(
                       (category) => (
